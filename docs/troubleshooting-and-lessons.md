@@ -24,7 +24,7 @@ This is the one that cost me the most time, and it's the answer to *"why could I
 
 ```bash
 sudo ls /nsm/zeek/spool/logger/
-sudo cat /nsm/zeek/spool/logger/conn.log | jq .
+sudo cat /nsm/zeek/spool/logger/files.log | jq .
 ```
 
 Takeaway: the console and the raw logs are two different data paths. When they disagree, the console (Elasticsearch) is usually right and the raw `current/` directory has just rotated.
