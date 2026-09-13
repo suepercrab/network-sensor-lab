@@ -18,7 +18,7 @@ Note JSON keys with dots (`id.orig_h`) are literal keys, so in `jq` they're `.["
 
 This is the one that cost me the most time, and it's the answer to *"why could I only see a detection in the web UI sometimes and not on the command line?"*
 
-`/nsm/zeek/logs/current/` rotates every hour and on every container restart. After a rotation it's emptied and the logs move to a dated, compressed folder. So `cat /nsm/zeek/logs/current/files.log` would return **"no such file or directory"** even though the data existed — because it had just rotated out, or the container had restarted. Meanwhile the **web UI still showed everything**, because Elasticsearch had already ingested the records. That's the whole "web UI works, command line doesn't" symptom: the console reads from Elasticsearch, the command line reads from a directory that rotates.
+`/nsm/zeek/logs/current/` rotates every hour and on every container restart. After a rotation it's emptied and the logs move to a dated, compressed folder. So while verifying the payload retrieval, \cat /nsm/zeek/logs/current/files.log` would return` **"no such file or directory"** even though the data existed — because it had just rotated out, or the container had restarted. Meanwhile the **web UI still showed everything**, because Elasticsearch had already ingested the records. That's the whole "web UI works, command line doesn't" symptom: the console reads from Elasticsearch, the command line reads from a directory that rotates.
 
 **Fix:** for live command line reads, use the spool path, which is where the running logger always writes:
 
