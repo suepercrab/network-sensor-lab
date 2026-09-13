@@ -36,8 +36,7 @@ A sensor can look perfectly healthy while seeing nothing, so I proved the monito
 | 03 | Payload retrieval | T1105 Ingress Tool Transfer | [detections/03-payload-retrieval.md](detections/03-payload-retrieval.md) |
 | 04 | Custom Suricata rules | T1046 | [detections/04-custom-suricata-rules.md](detections/04-custom-suricata-rules.md) |
 
-Build notes and the troubleshooting I hit (Zeek JSON logs, log rotation, memory pressure, why some detections only showed in the web UI): [docs/troubleshooting-and-lessons.md](docs/troubleshooting-and-lessons.md).
-
+Build notes and the troubleshooting I hit (Zeek JSON logs, log rotation, why some detections only showed in the web UI): [docs/troubleshooting-and-lessons.md](docs/troubleshooting-and-lessons.md).
 ## Host vs. network — the thesis
 
 | Attack | Network (this lab) | Host (AD / Wazuh labs) | Which wins |
